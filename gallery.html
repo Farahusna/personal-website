@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Gallery | Nur Farah Husna</title>
+
+<style>
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  color: #4a4a4a;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-image: url("images/background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+header {
+  height: 180px;
+  background-image: url("images/header.jpg");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(255, 228, 233, 0.6);
+}
+
+header h1 {
+  position: relative;
+  margin: 0;
+  font-size: 2.3rem;
+  color: #4b4b4b;
+  z-index: 1;
+}
+
+nav {
+  width: 100%;
+  background-color: #4b4b4b;
+  padding: 14px 0;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  gap: 15px;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;
+}
+
+nav ul li a {
+  text-decoration: none;
+  background-color: #F3A6B5;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 8px 18px;
+  border-radius: 25px;
+  transition: 0.3s ease;
+}
+
+nav ul li a:hover {
+  background-color: #E58FA1;
+  transform: translateY(-2px);
+}
+
+main {
+  flex: 1;
+  max-width: 900px;
+  margin: 35px auto;
+  background:#FFE4E1;
+  padding: 35px;
+  border-radius: 22px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.07);
+  text-align: center;
+}
+
+.gallery-wrapper {
+  overflow-x: auto;
+  padding: 15px 5px 25px;
+  scroll-behavior: smooth;
+}
+
+.gallery-wrapper::-webkit-scrollbar {
+  height: 8px;
+}
+
+.gallery-wrapper::-webkit-scrollbar-thumb {
+  background: #F3A6B5;
+  border-radius: 10px;
+}
+
+.gallery {
+  display: flex;
+  gap: 22px;
+}
+
+.gallery-item {
+  min-width: 220px;
+  height: 260px;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.gallery-item img,
+.gallery-item video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border: 4px solid #F3A6B5;
+  border-radius: 20px;
+}
+
+.gallery-item:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 18px 35px rgba(0,0,0,0.25);
+}
+
+.caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+  color: #fff;
+  padding: 12px;
+  font-size: 0.85rem;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: 0.4s ease;
+  pointer-events: none;
+}
+
+.gallery-item:hover .caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+footer {
+  text-align: center;
+  background: #F6C1CC;
+  color: #C71585;
+  padding: 10px 0;
+  font-size: 0.85rem;
+}
+
+.music-btn {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  background: linear-gradient(135deg, #F3A6B5, #E58FA1);
+  color: #ffffff;
+  border: none;
+  border-radius: 50px;
+  padding: 14px 28px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: 0.3s ease;
+}
+
+.music-btn:hover {
+  transform: scale(1.08);
+}
+</style>
+</head>
+
+<body>
+
+<audio id="bgMusic" loop>
+  <source src="music/shimmyshimmy.mp3" type="audio/mpeg">
+</audio>
+
+<button class="music-btn" onclick="toggleMusic()">🎶 Play Music</button>
+
+<header>
+  <h1>My Gallery</h1>
+</header>
+
+<nav>
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="aboutme.html">About Me</a></li>
+    <li><a href="education.html">Education</a></li>
+    <li><a href="family.html">Family</a></li>
+    <li><a href="gallery.html">Gallery</a></li>
+  </ul>
+</nav>
+
+<main>
+  <p>Swipe left to explore moments that quietly mean the world to me ! </p>
+
+  <div class="gallery-wrapper">
+    <div class="gallery">
+
+      <div class="gallery-item">
+        <img src="images/littleme.jpg">
+        <div class="caption">Little Me</div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="images/michaelkors.jpg">
+        <div class="caption">Shopping at JPO</div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="images/mebeach.jpg">
+        <div class="caption">Pantai Batu Burok</div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="images/airasia.jpg">
+        <div class="caption">Short Vacation</div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="images/methelayers.jpg">
+        <div class="caption">OOTD</div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="images/gentlewomen.jpg">
+        <div class="caption">Cafe Time</div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="images/fesko.jpg">
+        <div class="caption">Fesko 17 UiTM Machang</div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="images/mombirthday.jpg">
+        <div class="caption">Celebrated Mom's Birthday</div>
+      </div>
+
+
+      <div class="gallery-item">
+        <img src="images/supodio3.jpg">
+        <div class="caption">Quit Mirror Photo</div>
+      </div>
+
+
+
+      <div class="gallery-item">
+        <img src="images/db.jpg">
+        <div class="caption">Pastry for Life</div>
+      </div>
+
+      <div class="gallery-item">
+        <video controls>
+          <source src="video/chagee.mp4" type="video/mp4">
+        </video>
+        <div class="caption">Girls Day Out</div>
+      </div>
+      
+      <div class="gallery-item">
+        <video controls>
+          <source src="video/merdeka.MOV" type="video/mp4"> 
+      </video> 
+       <div class="caption">Celebrating Independence Day</div> 
+    </div> 
+
+     <div class="gallery-item">
+        <video controls>
+          <source src="video/infofest.MOV" type="video/mp4"> 
+    </video> 
+    <div class="caption">Infofest 2025</div>
+ 
+    </div>
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2026 This website is for educational purposes only | Nur Farah Husna</p>
+</footer>
+
+<script>
+const music = document.getElementById("bgMusic");
+const btn = document.querySelector(".music-btn");
+
+window.addEventListener("load", () => {
+  music.play().catch(() => {
+    btn.innerHTML = "🎶 Play Music";
+  });
+});
+
+function toggleMusic() {
+  if (music.paused) {
+    music.play();
+    btn.innerHTML = "⏸ Pause Music";
+  } else {
+    music.pause();
+    btn.innerHTML = "🎶 Play Music";
+  }
+}
+</script>
+
+</body>
+</html>
